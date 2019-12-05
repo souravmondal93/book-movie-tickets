@@ -1,0 +1,16 @@
+.theatre-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.movie-container {
+  width: calc(100%/3 - 20px);
+}
+
+.theatre-container {
+  width: calc(2 * (100%/3) - 20px);
+}
+
+.pad-top-100 {
+  padding-top: 100%;
+}

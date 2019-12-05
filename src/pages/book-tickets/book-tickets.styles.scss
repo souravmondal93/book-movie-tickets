@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+.screen-text {
+  border: 1px solid $color-dark-blue;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-dark-blue;
+  margin-top: 20px;
+}
+
+.confirm-btn-container {
+  text-align: center;
+  margin: 30px auto;
+}

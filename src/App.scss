@@ -1,3 +1,5 @@
+@import 'styles/variables';
+
 .App {
   text-align: center;
 }
@@ -19,4 +21,9 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
 }

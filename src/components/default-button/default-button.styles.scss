@@ -1,0 +1,45 @@
+@import '../../styles/variables';
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  margin: .4em 0.8em;
+  padding: 1em;
+  cursor: pointer;
+  background: $color-sheen-green;
+  text-decoration: none;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0;
+  text-transform: uppercase;
+}
+
+.button:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  border: $color-sheen-green solid 4px;
+  top: -16px;
+  right: -16px;
+  bottom: -16px;
+  left: -16px;
+  opacity: 0;
+  transition-duration: 0.3s;
+  transition-property: top, right, bottom, left;
+
+  .simple-btn {
+    content: none;
+  }
+}
+
+.button:hover:before, .button:focus:before, .button:active:before {
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  opacity: 1;
+}
