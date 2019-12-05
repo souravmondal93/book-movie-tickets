@@ -11,35 +11,24 @@ import './theatres.styles.scss';
 class Theatres extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      theatresList: [],
-      movieDetails: {
-        "Title": "The Angry Birds Movie",
-        "Year": "2016",
-        "imdbID": "tt1985949",
-        "Type": "movie",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BMTY3MjU0NDA0OF5BMl5BanBnXkFtZTgwNTc0MTU3OTE@._V1_SX300.jpg"
-      }
-    }
   }
 
   getTheatres = async () => {
     const { updateTheatresList } = this.props;
     updateTheatresList(THEATRES_DATA);
-    console.log('Updated Theatres');
   }
 
   componentDidMount() {
     this.getTheatres();
+    console.log('Theatres Props', this.props);
   }
 
   render = () => {
-    const { movieDetails } = this.state;
+    const { selectedMovie } = this.props;
     return (
       <div className="theatre-wrapper">
         <div className="movie-container">
-          <MovieItem className="pad-top-100" movieDetails={movieDetails} />
+          <MovieItem className="pad-top-100" movieDetails={selectedMovie} />
         </div>
         <div className="theatre-container">
           <TheatreList />
@@ -49,8 +38,12 @@ class Theatres extends Component {
   }
 }
 
+const mapStateToProps = ({ movies }) => ({
+  selectedMovie: movies.selectedMovie
+});
+
 const mapDispatchToProps = dispatch => ({
   updateTheatresList: theatres => dispatch(updateTheatresList(theatres))
 });
 
-export default connect(null, mapDispatchToProps)(Theatres);
+export default connect(mapStateToProps, mapDispatchToProps)(Theatres);

@@ -1,7 +1,8 @@
 import { moviesActionTypes } from './movies.types';
 
 const INITIAL_STATE = {
-  moviesList: []
+  moviesList: [],
+  selectedMovie: null
 };
 
 const moviesReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const moviesReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         moviesList: [ ...action.payload ]
+      };
+    case moviesActionTypes.SET_SELECTED_MOVIE:
+      return {
+        ...state,
+        selectedMovie: action.payload
       };
     default:
       return state;

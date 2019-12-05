@@ -17,13 +17,15 @@ class Movies extends Component {
     const { updateMoviesList } = this.props;
     const omdbUrl = `${config.omdbApiUrl}?apikey=${config.apiKey}&s=movie&type=movie`
 
-    const moviesResponse = await axios.get(omdbUrl)
-    console.log('Movies', moviesResponse);
-    updateMoviesList(moviesResponse.data.Search);
+    try {
+      const moviesResponse = await axios.get(omdbUrl);
+      updateMoviesList(moviesResponse.data.Search);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   componentDidMount() {
-    console.log('Props', this.props);
     this.getMovies();
   }
 

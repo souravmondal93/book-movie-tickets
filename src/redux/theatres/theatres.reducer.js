@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 const theatresReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case theatresActionTypes.UPDATE_THEATRES_LIST:
-      console.log('TH', action);
       return {
         ...state,
         theatresList: [ ...action.payload ]
