@@ -1,16 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import SeatItem from '../seat-item/seat-item.component';
 
 import './seat-list.styles.scss';
 
 const SeatList = (props) => {
+  console.log('SEAT list Props', props);
+  const { seatsList } = props;
   return (
     <div className="seat-list">
       {
-        props.seatList.length ?
+        seatsList.length ?
           [
-            props.seatList.map((seat) => {
+            seatsList.map((seat) => {
               return (
                 <div className="seat-item" key={seat.id}>
                   <SeatItem seatDetails={seat} />
@@ -23,4 +26,8 @@ const SeatList = (props) => {
   );
 };
 
-export default SeatList;
+const mapStateToProps = state => ({
+  seatsList: state.seats.seatsList
+})
+
+export default connect(mapStateToProps)(SeatList);

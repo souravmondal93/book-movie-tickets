@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateTheatresList } from '../../redux/theatres/theatres.actions';
+import { updateSeatsList } from '../../redux/seats/seats.actions';
 import MovieItem from '../../components/movie-item/movie-item.component'
 import TheatreList from '../../components/theatre-list/theatre-list.component';
 
@@ -20,7 +21,6 @@ class Theatres extends Component {
 
   componentDidMount() {
     this.getTheatres();
-    console.log('Theatres Props', this.props);
   }
 
   render = () => {
@@ -28,7 +28,7 @@ class Theatres extends Component {
     return (
       <div className="theatre-wrapper">
         <div className="movie-container">
-          <MovieItem className="pad-top-100" movieDetails={selectedMovie} />
+          <MovieItem className="pad-top-100" movieDetails={selectedMovie} hideBookBtn={true} />
         </div>
         <div className="theatre-container">
           <TheatreList />
@@ -43,7 +43,8 @@ const mapStateToProps = ({ movies }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateTheatresList: theatres => dispatch(updateTheatresList(theatres))
+  updateTheatresList: theatres => dispatch(updateTheatresList(theatres)),
+  updateSeatsList: seats => dispatch(updateSeatsList(seats))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Theatres);

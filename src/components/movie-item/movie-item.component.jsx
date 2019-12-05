@@ -22,7 +22,9 @@ const MovieItem = (props) => {
       <div className="card-overlay">
         <h2 className="movie-title">{movieDetails.Title}</h2>
         <h2 className="movie-year">{movieDetails.Year}</h2>
-        <button className="book-movie" onClick={() => selectMovieHandler(props)}>Book</button>
+        {
+          props.hideBookBtn ? '' : <button className="book-movie" onClick={() => selectMovieHandler(props)}>Book</button>
+        }
       </div>
     </div>
   );
