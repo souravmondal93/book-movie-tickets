@@ -15,7 +15,7 @@ const MovieItem = (props) => {
   const selectMovieHandler = ({setSelectedMovie, movieDetails}) => {
     setSelectedMovie(movieDetails);
     history.push(`/${movieDetails.imdbID}/theatres`);
-  }
+  };
 
   return (
     <div style={cardStyle} className="movie-details">

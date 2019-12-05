@@ -2,10 +2,10 @@ import React from 'react';
 
 import './default-button.styles.scss';
 
-const DefaultButton = (props) => {
-  const btnClass = props.simpleButton ? 'simple-btn' : '';
+const DefaultButton = ({simpleButton, ...props}) => {
+  const btnClass = simpleButton ? 'simple-btn' : '';
   return (
-    <button className={"button " + btnClass}>
+    <button {...props} className={"button " + btnClass}>
       {props.children}
     </button>
   );

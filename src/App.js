@@ -23,14 +23,25 @@ const App = (props) => {
               <Redirect to='/' />
             )
           } />
-        <Route exact path='/:movieId/theatres/:theatreId/book' component={BookTickets} />
+        <Route
+          exact
+          path='/:movieId/theatres/:theatreId/time/:timingId/book'
+          render={() =>
+            (props.selectedMovie && props.selectedTheatre && props.selectedTheatreTime) ? (
+              <BookTickets />
+            ) : (
+              <Redirect to='/' />
+            )
+          } />
       </Switch>
     </div>
   );
 };
 
-const mapStateToProps = ({ movies }) => ({
-  selectedMovie: movies.selectedMovie
+const mapStateToProps = ({ movies, theatres }) => ({
+  selectedMovie: movies.selectedMovie,
+  selectedTheatre: theatres.selectedTheatre,
+  selectedTheatreTime: theatres.selectedTheatreTime
 });
 
 export default connect(mapStateToProps)(App);

@@ -15,7 +15,7 @@ const moviesReducer = (state = INITIAL_STATE, action) => {
     case moviesActionTypes.SET_SELECTED_MOVIE:
       return {
         ...state,
-        selectedMovie: action.payload
+        selectedMovie: { ...action.payload }
       };
     default:
       return state;
