@@ -30,6 +30,7 @@ class BookTickets extends Component {
   }
 
   render = () => {
+    const { selectedSeats } = this.props;
     return (
       <div className="seats-wrapper">
         <SeatList />
@@ -37,7 +38,7 @@ class BookTickets extends Component {
           <h1>Screen</h1>
         </div>
         <div className="confirm-btn-container">
-          <DefaultButton onClick={this.confirmSeatSelection}>Confirm</DefaultButton>
+          <DefaultButton onClick={this.confirmSeatSelection} disabled={!selectedSeats.length}>Confirm</DefaultButton>
         </div>
       </div>
     );

@@ -14,3 +14,17 @@
 .pad-top-100 {
   padding-top: 100%;
 }
+
+@media only screen and (max-device-width: 599px) {
+  .theatre-wrapper {
+    flex-direction: column;
+  }
+
+  .movie-container {
+    width: 100%;
+  }
+
+  .theatre-container {
+    width: 100%;
+  }
+}
